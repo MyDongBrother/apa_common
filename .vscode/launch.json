@@ -1,0 +1,109 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            // 出现在vscode界面上的名字
+            "name": "build-x86",
+            // debugger类型 这是gdb
+            "type": "cppdbg",
+            "request": "launch",
+            // 可执行文件位置
+            "program": "${workspaceFolder}/apa_include/bin/x86/apa_pk_x86",
+            "args": [],
+            // 是否进入后暂停
+            "stopAtEntry": false,
+            // 工作目录
+            "cwd": "${workspaceFolder}/apa_include/bin/x86",
+            "environment": [
+                {
+                    "name": "LD_LIBRARY_PATH",
+                    "value": "${workspaceFolder}/apa_include/lib/x86:${workspaceFolder}/extlib/lib/x86:${workspaceFolder}/extlib/apa_msgs/lib/x86:${workspaceFolder}/extlib/fastdds/x86/lib"
+                },
+                {
+                    "name": "NODE_PLOT",
+                    "value": "1"
+                },
+            ],
+            // 是否使用外部终端
+            "externalConsole": false,
+            // dubug之前要运行的任务
+            "preLaunchTask": "Build apa_pk_x86",
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ],
+            "miDebuggerPath": "/usr/bin/gdb",
+        },
+        {
+            // 出现在vscode界面上的名字
+            "name": "gdb-server",
+            // debugger类型 这是gdb
+            "type": "cppdbg",
+            "request": "launch",
+            // 可执行文件位置
+            "program": "${workspaceFolder}/apa_include/bin/arm/apa_pk_arm",
+            "args": [],
+            // 是否连接后暂停
+            "stopAtConnect": true,
+            // 工作目录
+            "cwd": "${workspaceFolder}/apa_include/bin/arm",
+            "environment": [],
+            // 是否使用外部终端
+            "externalConsole": false,
+            // dubug之前要运行的任务
+            "preLaunchTask": "Build arm",
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ],
+            "miDebuggerPath": "/opt/arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu-gdb",
+            "miDebuggerServerAddress": "192.168.42.88:2589"
+        },
+        {
+            // 出现在vscode界面上的名字
+            "name": "lldb-server",
+            // debugger类型
+            "type": "lldb",
+            "request": "launch",
+            // 可执行文件位置
+            "program": "${workspaceFolder}/apa_include/bin/ndk/apa_pk_ndk",
+            // debug之前要运行的任务
+            "preLaunchTask": "lldb launch build task",
+            "initCommands": [
+                "platform select remote-android",
+                "platform connect connect://localhost:9098",
+                "settings set target.inherit-env false",
+                "platform settings -w /data/local/tmp/playctrl",
+                "platform status"
+            ],
+            "targetCreateCommands": [
+                "file /data/local/tmp/playctrl/apa_pk_ndk"
+            ],
+            "processCreateCommands": [
+                "settings set target.env-vars LD_LIBRARY_PATH=/data/local/tmp/playctrl/lib:/data/local/tmp/playctrl/extlib",
+                "run"
+            ],
+            "exitCommands": [
+                "quit"
+            ]
+        }
+    ]
+}

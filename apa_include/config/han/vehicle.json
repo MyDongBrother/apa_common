@@ -1,0 +1,5 @@
+{
+    "vehicle_type":2,
+    "vehicle_params":"byd_han.json",
+    "ccp_params":"byd_han_ccp.json"
+}

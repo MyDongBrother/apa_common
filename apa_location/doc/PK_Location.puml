@@ -1,0 +1,32 @@
+@startuml
+start
+:首次运行？;
+if (否) then (否)
+  -> [跳过读取配置文件]
+else (是)
+  :PK_Location - 读取配置文件 loc.json;
+  :PK_Location - 解析并设置参数;
+endif
+:LocationManagement - 管理功能使能和复位状态;
+:LocationInitialization - 初始化定位模块;
+:LocationRTEGetSensor - 获取传感器原始数据;
+:ParameterTuning - 调整卡尔曼滤波参数;
+:DirectSensorDiagnostics - 传感器直接诊断;
+:LocationManagementByErrorCode - 更新错误码;
+:LocationManagementByErrorCode - 根据错误码管理功能状态;
+:Collision_detect - 碰撞检测;
+:CalIndirectSensorData - 计算间接传感器数据;
+:TranslationalMotion - 计算速度和加速度;
+:IndirectDirectSensorDiagnostics - 间接诊断;
+:LocationManagementByErrorCode - 更新错误码;
+:LocationManagementByErrorCode - 管理功能状态;
+:RotationalMotion - 计算车辆姿态;
+:AutoCalibration - 自动校准EPS零点和车轮参数;
+:Location - 定位计算;
+:Localization - 定位计算;
+:LocationSetGlobalVar - 更新全局变量;
+:LocationRTESetData - 设置RTE和CCP数据;
+:LocationSetEPPROM - 设置EEPROM参数;
+:LocationSaveLocation - 保存历史定位数据;
+stop
+@enduml
