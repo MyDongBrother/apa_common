@@ -21,11 +21,11 @@ FILE *OpenLogFile(const char *name)
 
 void Eth_InitVisionSlot()
 {
-#ifndef SIMULATE
-    VisionMsgRecvPtr VisionLoopFunc = GetVisionLoopFunc();
-    if (VisionLoopFunc != NULL)
-    {
-        ASyncRun(VisionLoopFunc, (void *)"18803", "apa_dds_perc");
-    }
-#endif
+    // #ifndef SIMULATE
+    //     VisionMsgRecvPtr VisionLoopFunc = GetVisionLoopFunc();
+    //     if (VisionLoopFunc != NULL)
+    //     {
+    //         ASyncRun(VisionLoopFunc, (void *)"18803", "apa_dds_perc");
+    //     }
+    // #endif
 }
