@@ -22,6 +22,10 @@ include_directories(${PROJECT_INCLUDE_PATHS})
 # 创建共享库
 add_library(${TARGET_NAME} SHARED ${C_SRCS} ${CPP_SRCS})
 
+target_link_libraries(${TARGET_NAME}
+
+)
+
 # 指定编译选项，只针对三方库解决编译报错问题
 target_compile_options(${TARGET_NAME} PRIVATE
 )
