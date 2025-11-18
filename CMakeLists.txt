@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
-project(viscommon_module)
-set(TARGET_NAME viscommon)
+project(commons_module)
+set(TARGET_NAME commons)
 
 # 设置源码目录
 set(SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR})
@@ -14,7 +14,6 @@ endforeach()
 
 # 通用cmake
 include(${PROJECT_BASEDIR}/apa_runtime/common.cmake)
-include(${PROJECT_BASEDIR}/vis_common/src/include.cmake)
 
 # 添加当前目录作为头文件路径（等价于 -I ./）
 include_directories(${SRC_DIR})
@@ -37,6 +36,6 @@ set_target_properties(${TARGET_NAME} PROPERTIES
 
 # 装载路径
 install(TARGETS ${TARGET_NAME}
-        ARCHIVE DESTINATION vis_common/lib/${BUILDTYPE}
-        LIBRARY DESTINATION vis_common/lib/${BUILDTYPE}
-        RUNTIME DESTINATION vis_common/lib/${BUILDTYPE})
+        ARCHIVE DESTINATION apa_runtime/apa_common/${BUILDTYPE}
+        LIBRARY DESTINATION apa_runtime/apa_common/${BUILDTYPE}
+        RUNTIME DESTINATION apa_runtime/apa_common/${BUILDTYPE})
