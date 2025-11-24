@@ -1,6 +1,7 @@
 /**
  * @file ring_buffer.c
- * @brief
+ * @brief 平台中重要的环形数组数据结构
+ *
  * @author jiandong.liu (liujiandong@bm-intelligent.com)
  * @version 0.1
  * @date 2025-10-28

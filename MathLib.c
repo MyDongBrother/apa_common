@@ -14,7 +14,6 @@
  * <tr><td>2025-10-14 <td>1.0      <td>jiandong.liu     <td>first version
  * </table>
  */
-#include "Std_Types.h"
 #include "MathFunc.h"
 
 /**
