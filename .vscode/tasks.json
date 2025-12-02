@@ -7,7 +7,7 @@
             "command": "./script/lldb_server.sh"
         },
         {
-            "label": "Build apa_pk_x86",
+            "label": "Build apa_nav_x86",
             "type": "shell",
             "command": "./script/build.sh x86"
         }

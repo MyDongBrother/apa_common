@@ -1,9 +1,0 @@
-{
-    "para_use_imu": -1, 
-    "para_veh_yaw_resolution": 0.002132603,
-    "para_veh_yaw_still_offset": 0.00198705, 
-    "para_veh_yaw_moving_clockwise_offset": 0.001557,
-    "para_veh_yaw_moving_counterClockwise_offset": -0.000360,
-    "cur_angle_factor": 0.10,
-    "para_save_history_num": 150
-}
