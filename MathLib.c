@@ -62,3 +62,18 @@ void ConvertVec(const Pos2d_T *pO, const Vec2d_T *pin, Vec2d_T *pout)
     pout->x = pin->x * cosf(pO->phi) - pin->y * sinf(pO->phi) + pO->x;
     pout->y = pin->x * sinf(pO->phi) + pin->y * cosf(pO->phi) + pO->y;
 }
+
+/**
+ * @brief 将局部坐标系下的点转换到全局坐标系
+ *
+ * @param pO    局部坐标系原点在全局坐标系的位置及朝向 (x, y, phi)
+ * @param pin   局部坐标系下的点坐标 (x, y)
+ * @param pout  输出的全局坐标系下的点坐标 (x, y)
+ *
+ * @note 使用二维刚体变换：先旋转，再平移
+ */
+void ConvertArray(const float *pO, const float *pin, float *pout)
+{
+    pout[0] = pin[0] * cosf(pO[2]) - pin[1] * sinf(pO[2]) + pO[0];
+    pout[1] = pin[0] * sinf(pO[2]) + pin[1] * cosf(pO[2]) + pO[1];
+}
